@@ -4,20 +4,17 @@
 [![Platform](https://img.shields.io/cocoapods/p/MTMedia.svg?style=flat)](https://cocoapods.org/pods/MTMedia)
 
 ## About  
-HI,
-MTMedia is a powerful Swift library designed as a temporary replacement for FFmpeg and FFprobe in your iOS projects. If you're looking for a tool to process and analyze media (such as videos and audio) but cannot yet use the official FFmpeg libraries, MTMedia provides the perfect solution. 🚀  
+HI,  
+MTMedia is a temporary alternative to FFmpeg, providing a seamless way to execute FFmpeg commands while we wait for a better free library with improved support. 🚀  
 
 ## Editing Demo 🎬
 
 <p align="center">
-    <figure style="display: inline-block; text-align: center; margin-right: 16px;">
-        <figcaption>Image</figcaption>
-        <img src="Resources/cover.jpeg" width="39%">
-    </figure>
-    <figure style="display: inline-block; text-align: center; margin-left: 16px;">
-        <figcaption>Video</figcaption>
-        <img src="Resources/video.gif" width="39%">
-    </figure>
+    <img src="Resources/cover.jpeg" width="39%" style="margin-right: 16px;">
+    <img src="Resources/video.gif" width="39%" style="margin-left: 16px;">
+</p>
+
+<p align="center">
     <figure style="display: block; text-align: center; margin-top: 16px;">
         <figcaption>Result</figcaption>
         <img src="Resources/result.gif" width="79%">
