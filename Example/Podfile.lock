@@ -1,0 +1,24 @@
+PODS:
+  - MiTuKit (1.0.1)
+  - MTMedia (1.0.0):
+    - MiTuKit
+
+DEPENDENCIES:
+  - MiTuKit
+  - MTMedia (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - MiTuKit
+
+EXTERNAL SOURCES:
+  MTMedia:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  MiTuKit: d5eaf307d9bb8576af5febe62597f1eae7052971
+  MTMedia: d67a3d9fe1b279a0a5c244b985e23dad413cb6bc
+
+PODFILE CHECKSUM: 4c0f28c7d514f46fb069189cf3cf1758af0db69c
+
+COCOAPODS: 1.16.2

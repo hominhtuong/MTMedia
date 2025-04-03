@@ -45,6 +45,7 @@ class ViewController: UIViewController {
 }
 
 extension ViewController {
+    
     func sampleHandle() {
         Task(priority: .high) {
             self.showLoading(color: .white)
@@ -104,7 +105,7 @@ extension ViewController {
             return nil
         }
         let command =
-            "-i \(inputUrl.getPath) -vf \"fps=20,scale=640:360:flags=lanczos\" -c:v gif \(outputUrl)"
+        "-i \(inputUrl.getPath) -vf \"fps=20,scale=640:360:flags=lanczos\" -c:v gif \(outputUrl.getPath)"
 
         guard let session = await MTMedia.execute(command) else {
             return nil

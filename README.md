@@ -10,11 +10,19 @@ MTMedia is a powerful Swift library designed as a temporary replacement for FFmp
 ## Editing Demo 🎬
 
 <p align="center">
-    <img src="Resources/cover.jpeg" width="39%" style="margin-right: 16px;">
-    <img src="Resources/video_thumbnail.jpeg" width="39%" style="margin-left: 16px;">
-    <img src="Resources/result.gif" width="100%" style="margin-top: 16px;">
+    <figure style="display: inline-block; text-align: center; margin-right: 16px;">
+        <figcaption>Image</figcaption>
+        <img src="Resources/cover.jpeg" width="39%">
+    </figure>
+    <figure style="display: inline-block; text-align: center; margin-left: 16px;">
+        <figcaption>Video</figcaption>
+        <img src="Resources/video.gif" width="39%">
+    </figure>
+    <figure style="display: block; text-align: center; margin-top: 16px;">
+        <figcaption>Result</figcaption>
+        <img src="Resources/result.gif" width="79%">
+    </figure>
 </p>
-
 
 ## Installation with CocoaPods
 To integrate MTMedia into your Xcode project using CocoaPods, specify it in your `Podfile`
@@ -35,35 +43,17 @@ dependencies: [
 ```
 
 ## Example code:
-##### The code would look like this:
+
+You can `import ffmpegkit` into your project, or you can use it as shown in the sample project within this repository.
+
+##### Merge image to Video:
 
 ```swift
     func mergeVideo() async -> URL? {
-        guard
-            let videoUrl = Bundle.main.url(
-                forResource: "video",
-                withExtension: "mp4"
-            ),
-            let imageUrl = Bundle.main.url(
-                forResource: "cover",
-                withExtension: "jpeg"
-            )
-        else {
-            printDebug("Cannot find video or image")
-            return nil
-        }
-
-        guard
-            let outputUrl = cacheURL?.appendingPathComponent(
-                "\(Date().timeIntervalSince1970).mp4"
-            )
-        else {
-            printDebug("Cannot create output url")
-            return nil
-        }
-
+        //... setup input, output path
+        
         let command =
-            "-i \(videoUrl.getPath) -i \(imageUrl.getPath) -filter_complex \"[1:v]scale=1280:720[img];[0:v][img]overlay=0:0:enable='between(t,0,2)'\" -c:a copy \(outputUrl.getPath)"
+            "-i \(videoPath) -i \(imagePath) -filter_complex \"[1:v]scale=1280:720[img];[0:v][img]overlay=0:0:enable='between(t,0,2)'\" -c:a copy \(outputPath)"
 
         guard let session = await MTMedia.execute(command) else {
             return nil
@@ -76,17 +66,16 @@ dependencies: [
         }
     }
 
+```
+
+##### Convert Video to Gif:
+
+```swift
     func video2GIF(inputUrl: URL) async -> URL? {
-        guard
-            let outputUrl = cacheURL?.appendingPathComponent(
-                "\(Date().timeIntervalSince1970).gif"
-            )
-        else {
-            printDebug("Cannot create output url")
-            return nil
-        }
+        //... setup output path
+        
         let command =
-            "-i \(inputUrl.getPath) -vf \"fps=20,scale=640:360:flags=lanczos\" -c:v gif \(outputUrl)"
+            "-i \(inputPath) -vf \"fps=20,scale=640:360:flags=lanczos\" -c:v gif \(outputPath)"
 
         guard let session = await MTMedia.execute(command) else {
             return nil
