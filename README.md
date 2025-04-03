@@ -63,7 +63,7 @@ You can `import ffmpegkit` into your project, or you can use it as shown in the 
 
 ```swift
     func video2GIF(inputUrl: URL) async -> URL? {
-        //... setup output path
+        //... setup intput, output path
         
         let command =
             "-i \(inputPath) -vf \"fps=20,scale=640:360:flags=lanczos\" -c:v gif \(outputPath)"
