@@ -12,13 +12,7 @@ MTMedia is a temporary alternative to FFmpeg, providing a seamless way to execut
 <p align="center">
     <img src="Resources/cover.jpeg" width="39%" style="margin-right: 16px;">
     <img src="Resources/video.gif" width="39%" style="margin-left: 16px;">
-</p>
-
-<p align="center">
-    <figure style="display: block; text-align: center; margin-top: 16px;">
-        <figcaption>Result</figcaption>
-        <img src="Resources/result.gif" width="79%">
-    </figure>
+    <img src="Resources/result.gif" width="100%" style="margin-top: 16px;">
 </p>
 
 ## Installation with CocoaPods
